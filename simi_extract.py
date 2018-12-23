@@ -20,7 +20,8 @@ class CandReplyer:
 		    "論文，研究": "我的碩士論文主要研究Machine Reading Comprehension的技術",
 		    "工作經驗，實習": "大學時曾經在iCook實習一年擔任後端工程師, 碩一暑假在台達電擔任NLP工程師",
 		    "工作內容": "iCook時設計與建置API, 台達電時研究前沿的自動摘要技術",
-		    "自我介紹": "目前就讀台灣大學資訊管理學系碩二，研究所期間主要在研究Deep Learning NLP領域中的閱讀理解問題，實際實作過許多論文中的模型，並正在撰寫碩士論文目標投稿ACL 2019。工作經驗有在台達電子做過自動摘要技術的研究，以及大學部期間擁有一年的後端開發實習經驗，熟悉設計與實作基礎的網頁系統與API。"
+		    "自我介紹": "目前就讀台灣大學資訊管理學系碩二，研究所期間主要在研究Deep Learning NLP領域中的閱讀理解問題，實際實作過許多論文中的模型，並正在撰寫碩士論文目標投稿ACL 2019。工作經驗有在台達電子做過自動摘要技術的研究，以及大學部期間擁有一年的後端開發實習經驗，熟悉設計與實作基礎的網頁系統與API。",
+		    "預設": "抱歉我不懂您的意思"
 		}
 
 	def sent2vec(self, sent):
@@ -43,7 +44,7 @@ class CandReplyer:
 	def reply(self, query):
 		query_vec = self.sent2vec(query)
 		max_similarity = -1
-		cur_cand = "抱歉我不懂您的意思"
+		cur_cand = "預設"
 		for cand in self.candidate_replies.keys():
 		    # print(cand, ": ", end="")
 		    cand_vec = self.sent2vec(cand)
