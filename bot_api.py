@@ -1,4 +1,5 @@
 from flask import Flask, request, abort
+from simi_extract import CandReplyer
 import os
 from linebot import (
     LineBotApi, WebhookHandler
@@ -11,6 +12,7 @@ from linebot.models import (
 )
 
 app = Flask(__name__)
+cand_replyer = CandReplyer()
 
 is_prod = os.environ.get('IS_HEROKU', None)
 if is_prod:
@@ -40,7 +42,7 @@ def callback():
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=cand_replyer.reply(event.message.text)))
 
 
 if __name__ == "__main__":
