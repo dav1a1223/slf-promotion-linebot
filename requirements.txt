@@ -5,3 +5,6 @@ gensim==3.2.0
 jieba==0.39
 sklearn==0.0
 scipy==1.0.0
+torch==0.4.1
+torchvision==0.2.1
+numpy==1.15.2

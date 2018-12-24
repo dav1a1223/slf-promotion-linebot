@@ -8,9 +8,9 @@ from scipy import spatial
 
 class CandReplyer:
 	def __init__(self):
-		self.vectorizer = pickle.load(open("vectorizer", "rb"))
-		self.transformer = pickle.load(open("tfidf", "rb"))
-		self.wmodel = word2vec.Word2Vec.load("wmodel.w2v")
+		self.vectorizer = pickle.load(open("models/vectorizer", "rb"))
+		self.transformer = pickle.load(open("models/tfidf", "rb"))
+		self.wmodel = word2vec.Word2Vec.load("models/wmodel.w2v")
 		self.thres = 0.4
 		self.candidate_replies = {
 		    "興趣，喜好": "我的興趣是打羽毛球與打爵士鼓",
